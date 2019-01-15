@@ -39,6 +39,9 @@ public class StaticMoreTextView extends StaticTextView {
 
     public void setCustomMoreSpan(MoreCompSpan customMoreSpan) {
         this.customMoreSpan = customMoreSpan;
+        if (customMoreSpan != null) {
+            customMoreSpan.setOnMoreClickListener(moreClickListener);
+        }
     }
 
     public MoreCompSpan getMoreSpan() {
