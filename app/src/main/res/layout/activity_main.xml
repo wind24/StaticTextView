@@ -25,7 +25,7 @@
         android:onClick="changeSize"
         android:text="变大小" />
 
-    <com.wind.statictextview.StaticTextView
+    <com.wind.statictextview.StaticMoreTextView
         android:id="@+id/text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

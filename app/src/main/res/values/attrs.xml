@@ -4,5 +4,6 @@
         <attr name="textSize" format="dimension" />
         <attr name="textColor" format="color" />
         <attr name="text" format="string" />
+        <attr name="maxLines" format="integer" />
     </declare-styleable>
 </resources>
