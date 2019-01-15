@@ -89,9 +89,8 @@ public class StaticTextView extends View {
             }
         }
         /*
-         * needRefreshLayout=true的时候表示是setText的时候执行的。
          *
-         * 这种情况下，会执行预绘画处理，如果预处理有返回新的内容，用新的内容重新构造layout
+         * 执行预绘画处理，如果预处理有返回新的内容，用新的内容重新构造layout
          */
         CharSequence reDraw = onPreDraw(layout);
         if (reDraw != null) {
