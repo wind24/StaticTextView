@@ -233,6 +233,14 @@ public class StaticTextView extends View {
         return super.onTouchEvent(event);
     }
 
+    /**
+     * 拷贝自TextView的LinkedMoveMoment的源码
+     *
+     * @param event
+     * @param buffer
+     * @param layout
+     * @return
+     */
     private boolean updateSelection(MotionEvent event, Spannable buffer, Layout layout) {
         int action = event.getAction();
 
