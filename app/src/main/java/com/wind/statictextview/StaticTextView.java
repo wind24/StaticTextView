@@ -69,7 +69,7 @@ public class StaticTextView extends View {
      * @param needRefreshLayout
      */
     private void buildLayout(CharSequence label, boolean needRefreshLayout) {
-        int width = getMeasuredWidth() + getPaddingLeft() + getPaddingRight();
+        int width = getMeasuredWidth() - getPaddingLeft() - getPaddingRight();
         StaticLayout layout = new StaticLayout(label, paint, width, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0, false);
         if (needRefreshLayout) {
             if (staticLayout != null) {
@@ -150,9 +150,8 @@ public class StaticTextView extends View {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        if (label == null) {
-            super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        } else {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        if (label != null) {
             buildLayout(label, false);
             int height = staticLayout.getHeight() + getPaddingTop() + getPaddingBottom();
             setMeasuredDimension(widthMeasureSpec, MeasureSpec.makeMeasureSpec(height, MeasureSpec.EXACTLY));
