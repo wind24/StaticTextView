@@ -60,14 +60,14 @@ public class StaticMoreTextView extends StaticTextView {
                 int index = layout.getLineEnd(MAX_SHOW_LINES - 1);
                 CharSequence label = layout.getText();
                 /*
-                 *占位符的长度大于最后一行的剩余空间的情况下才进行最后一行的截字
+                 *一行的宽度减去占位符的宽度剩下的宽度如果比当行文字的宽度小，则需要裁剪掉当行的文字来放下more的span
                  */
                 float moreWidth = layout.getPaint().measureText(moreSpan.getSource().toString());
                 float freeSpace = layout.getWidth() - moreWidth;
                 float lineSpace = layout.getLineRight(MAX_SHOW_LINES - 1);
-                boolean needSubSource = freeSpace > lineSpace;
+                boolean needSubSource = freeSpace < lineSpace;
                 if (needSubSource) {
-                    label = label.subSequence(0, index - moreSpan.getMoreLength());
+                    label = label.subSequence(0, index - moreSpan.getMoreLength() - 1);
                 } else {
                     label = label.subSequence(0, index - 1);
                 }
