@@ -10,6 +10,11 @@ import android.util.AttributeSet;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 组合显示span的textView，组成部分是：MoreSpan+List<BaseInflateSpan>。
+ * <p>
+ * 其中MoreSpan是单独设置的，在onPreDraw时先渲染，再遍历spans，逐个渲染。
+ */
 public class StaticMultiSpanTextView extends StaticTextView {
 
     /**
@@ -122,10 +127,16 @@ public class StaticMultiSpanTextView extends StaticTextView {
     @Override
     protected CharSequence onPreDraw(StaticLayout layout) {
         SpannableStringBuilder reDraw = null;
+        /*
+        先渲染MoreSpan，组成新的SpannableStringBuilder，用于返回。如果不需要处理加载更多，这个返回是空的。
+         */
         if (inMiniState) {
             reDraw = buildMoreSpan(layout);
         }
 
+        /*
+         * 逐个渲染spans
+         */
         if (!spans.isEmpty()) {
             if (reDraw == null) {
                 reDraw = new SpannableStringBuilder(layout.getText());
