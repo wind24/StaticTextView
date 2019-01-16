@@ -6,4 +6,7 @@
         <attr name="text" format="string" />
         <attr name="maxLines" format="integer" />
     </declare-styleable>
+    <declare-styleable name="StaticMultiSpanTextView">
+        <attr name="miniState" format="boolean" />
+    </declare-styleable>
 </resources>
