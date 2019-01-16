@@ -25,15 +25,19 @@
         android:onClick="changeSize"
         android:text="变大小" />
 
-    <com.wind.statictextview.StaticMultiSpanTextView
-        android:id="@+id/text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#0f0"
-        android:padding="10dp"
-        app:miniState="true"
-        app:text="Hello World!"
-        app:textColor="#000"
-        app:textSize="20sp" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.wind.statictextview.StaticMultiSpanTextView
+            android:id="@+id/text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            app:miniState="true"
+            app:text="Hello World!"
+            app:textColor="#000"
+            app:textSize="20sp" />
+    </ScrollView>
 
 </LinearLayout>
